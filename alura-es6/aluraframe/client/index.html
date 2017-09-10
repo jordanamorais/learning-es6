@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Negociações</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    
+</head>
+<body class="container">
+    
+    <h1 class="text-center">Negociações</h1>
+    
+    <div id="mensagem-view"></div>
+
+    <!-- Inspiracao de frameworks como AngularJS, para chamar a instancia -->
+    <!-- Contudo, frameworks SPA, como Angular, adotam estrutura semelhante para associar a ação de um controller a um componente da página, -->
+    <form class="form" onsubmit="negociacaoController.adiciona(event)">
+        
+        <div class="form-group">
+            <label for="data">Data</label>
+            <input type="date" id="data" class="form-control" required autofocus/>        
+        </div>    
+        
+        <div class="form-group">
+            <label for="quantidade">Quantidade</label>
+            <input type="number" min="1" step="1" id="quantidade" class="form-control" value="1" required />
+        </div>
+        
+        <div class="form-group">
+            <label for="valor">Valor</label>
+            <input id="valor" type="number" class="form-control"  min="0.01" step="0.01" value="0.0" required />
+        </div>
+        
+        <button class="btn btn-primary" type="submit">Incluir</button>
+    </form>
+    
+    <div class="text-center">
+        <button class="btn btn-primary text-center" type="button">
+            Importar Negociações
+        </button>
+        <button class="btn btn-primary text-center" type="button">
+            Apagar
+        </button>
+    </div> 
+    <br>
+    <br>
+    
+    <!-- Tabela vinda da view -->
+    <div id="negociacoesView"></div>
+
+    <!--<script src="js/index.js"></script>-->
+    <script src="js/app/models/Negociacao.js"></script>
+    <script src="js/app/controllers/NegociacaoController.js"></script>
+    <script src="js/app/helpers/DateHelper.js"></script>
+    <script src="js/app/models/ListaNegociacoes.js"></script>
+    <script src="js/app/models/Mensagem.js"></script>
+    <script src="js/app/views/View.js"></script>
+    <script src="js/app/views/NegociacoesView.js"></script>
+    <script src="js/app/views/MensagemView.js"></script>
+    <script src="js/app/aula04-ex08.js"></script>
+    <script src="js/app/aula04-ex09.js"></script>
+    
+    <script>
+
+        // Instanciar Controller
+        let negociacaoController = new NegociacaoController();
+
+        // Depois no form, onde haverá a submissao do formulário, no método onsubmit, chama a instancia e o método de adição.
+    </script>
+    <script>
+    
+        // Criar instancias de Negociacao. Objetos criados a partir da Classe Negociacao
+        // var n1 = new Negociacao();
+        // console.log(n1);
+
+        let n1 = new Negociacao(new Date(), 5, 700); // Já passando os valores pras caracteristicas da Classe
+        //var volume = n1.quantidade * n1.valor;
+
+        // Chamadas quando os métodos estao como getVolume().. etc
+        // console.log("Volume:" + n1.getVolume());
+        // console.log("Data:" + n1.getData());
+        // console.log("Quantidade:" + n1.getQuantidade());
+        // console.log("Valor:" + n1.getValor());
+
+        // Chamadas quando se usa o get nas definições dos métodos na Classe
+        // passa a se poder acessar como se fosse uma propriedade:
+        console.log("Volume:" + n1.volume);
+        console.log("Data:" + n1.data);
+        console.log("Quantidade:" + n1.quantidade);
+
+        // Desssa forma acima, nao sera possivel ter o risco de alterar o valor externamente
+        // Mas, ainda pode ser alterado dessa maneira: var n1._quantidade = 1000;
+        // Para isso seria preciso congelar um objeto via javascript. (Mas é uma solucao procedural (ruim)) 
+        let quantidade = 1000; 
+        console.log("Valor:" + n1.valor);
+
+        // Solucao (ruim) de congelamento procedural para fazer fora da classe. O correto é estar dentro.
+        // Object.freeze(n1);
+        // n1_quantidade = 1000; // nao seria alterado
+        // console.log(Object.isFrozen(n1));
+
+        // LET e VAR
+        // var tem escopo de bloco em outras linguagens, mas em JS tem escopo de funcao ou global
+        // uma maneira de escopar var dentro de blocos seria declarando o bloco que ela está dentro de uma funcao.
+        // let passa a ter escopo de bloco em JS. Só existe onde foram declaradas.
+
+        for(var v = 1; v <= 10; v++) {
+            console.log(v);
+        };
+
+        for(let l = 1; l <= 10; l++) {
+            console.log(l);
+        };
+
+        //console.log("For com indice declarado com var: " + v); // retorna 11 (pois JS com var nao tem escopo de bloco)
+        //console.log("For com indice declarado com let: " + l); // erro de JS: l is not defined
+
+
+        // Criando um objeto Date passando o formato dia mes e ano
+        // ---
+        //let dataString = '17-05-2016';
+
+        //dataString = dataString.split('-').reverse().join('/');
+
+        //let data = new Date(dataString);
+
+        //console.log(data);
+        
+    </script>
+    <script>
+        // Excercicios
+        // ----
+        // Aula 04 Exercicio 08
+
+        // Solucao 1
+        //Codigo.validate('GWZ-JJ-12'); // valido
+        //Codigo.validate('1W1-JJ-12'); // invalido. o \D  nao recebe numeros.
+
+        // Solucao 2
+        let myCode = new Codigo('GWZ-JJ-12'); // se for passado o primeiro codigo com um numero, será invalido
+        console.log(myCode.showCode);
+
+    </script>
+</body>
+</html>

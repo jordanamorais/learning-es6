@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 06 - Ex 08</title>
+</head>
+<body>
+    
+    <div class="wrapper">
+
+    </div>
+
+    <script src="js/Conta.js"></script>
+    <script src="js/ContaCorrente.js"></script>
+    <script src="js/ContaPoupanca.js"></script>
+
+    <script>
+        let $ = document.querySelector.bind(document);
+        let viewElement = $('.wrapper');
+
+        let contaCorrente = new ContaCorrente('1200');
+        let contaPoupanca = new ContaPoupanca('5200');
+
+        // passando a taxa
+        contaCorrente.atualiza(10);
+        contaCorrente.atualiza(2);
+
+        viewElement.innerHTML = `
+
+            <h3>Sua Conta</h3>
+            
+            Saldo da Conta Corrente: R$ ${contaCorrente.saldo}. <br/>
+            --- <br/>
+            Saldo da Conta Poupança: R$ ${contaPoupanca.saldo}.
+        `;
+
+    </script>
+</body>
+</html>

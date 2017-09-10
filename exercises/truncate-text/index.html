@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Testing truncate text</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <div class="my-text-wrap">
+            <h3>Nulla placerat dui ac feugiat commodo. Sed consectetur mattis risus, vitae malesuada nisl imperdiet sed.
+            </h3>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer feugiat congue euismod. Nulla consequat gravida
+                ipsum eget sollicitudin. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                egestas. Nulla placerat dui ac feugiat commodo. Sed consectetur mattis risus, vitae malesuada nisl imperdiet
+                sed. Mauris diam tortor, blandit sed maximus in, dignissim a elit. Sed ac pretium dolor.</p>
+        </div>
+
+        <div class="my-text-wrap">
+            <h3>Curabitur sed nibh finibus, hendrerit magna id, rhoncus est</h3>
+
+            <p>Vestibulum mattis leo eget magna scelerisque ullamcorper. Fusce a turpis tempus, laoreet ligula sed, pharetra
+                ante. Pellentesque pellentesque lorem lectus, at ultrices tortor ornare sed. Donec sed nibh et dui dignissim
+                gravida non sit amet nulla. Nulla pretium leo fringilla magna vulputate, sed facilisis ex vestibulum. Quisque
+                fringilla dignissim quam id dapibus. Phasellus ac orci sed magna mollis efficitur.</p>
+        </div>
+
+        <div class="my-text-wrap">
+            <h3>Fusce pulvinar, lacus sed facilisis hendrerit, turpis mauris viverra magna, vel congue turpis erat ut ipsum.
+                Curabitur sit amet nunc turpis. Sed dapibus tellus.
+            </h3>
+
+            <p>Praesent luctus eros at risus eleifend, in bibendum nunc pretium. Morbi sed massa ac arcu aliquam porta. Praesent
+                eu eleifend mauris. Donec lacus turpis, pretium ut aliquam ut, rutrum sed est. Duis tristique ut lacus eget
+                dictum. Nullam venenatis orci sit amet aliquet mollis. Nulla molestie elementum est, eget luctus eros vulputate
+                sodales. Curabitur molestie lectus et mauris pellentesque, nec euismod est dictum.</p>
+        </div>
+
+        <div class="truncated-text"></div>
+    </div>
+
+    <script src="js/TextHelper.js"></script>
+
+    <script>
+        let theTitles = document.querySelectorAll('.my-text-wrap h3');
+        let theSummaries = document.querySelectorAll('.my-text-wrap p');
+
+        truncateItems(theTitles, 40);
+        truncateItems(theSummaries, 60);
+
+        function truncateItems(elementNodeList, maxLength) {
+
+            // This is to NodeList works in a forEach loop
+            return [].forEach.call(elementNodeList, function (item) {
+
+                        item.textContent = TextHelper.truncate(item.textContent, maxLength);
+                        console.log(item.textContent);
+                    });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 05 Ex 12</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+    </div>
+
+    <script>
+        let numeros = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121];
+        let $ = document.querySelector.bind(document);
+        let viewElement = $('.wrapper');
+
+        // Sem arrow functions
+        // let dobro = numeros.map(function (num) {
+        //     return num * 2;
+        // });
+        // let metade = numeros.map(function (num) {
+        //     return num / 2;
+        // });
+        // let raiz = numeros.map(function (num) {
+        //     return Math.sqrt(num);
+        // });
+
+        // Com Arrow Functions
+        let dobro = numeros.map(num => num * 2);
+
+        let metade = numeros.map(num => num / 2);
+
+        let raiz = numeros.map(num => Math.sqrt(num));
+
+        viewElement.innerHTML = `
+            <h3> O Array: ${numeros} </h3>
+            <p>O dobro dos valores do array: ${dobro}</p>
+            <p>A metade dos valores do array: ${metade}</p>
+            <p>A raiz quadrada dos elementos: ${raiz}</p>
+        `;
+    </script>
+</body>
+
+</html>
