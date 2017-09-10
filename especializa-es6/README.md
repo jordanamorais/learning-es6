@@ -1,5 +1,8 @@
 ## Notas sobre o curso Udemy - Javascript do Futuro (Especializa/Es6)
 
+* Forked do curso:
+  * https://github.com/jordanamorais/es6
+  
 ### NodeJS
 
 * Iniciou-se a partir de um projeto (V8) da Google para o Chrome.
@@ -15,7 +18,7 @@
 
 * *n* -- Gestor de versões do Node para Mac. Disponível via _brew_. 
 
-```javascript
+```bash
 brew install n
 
 // Instala a ultima versao LTS (recomendada)
@@ -37,8 +40,21 @@ n latest
 * Ótima opção free para se trabalhar com JS e TypeScript.
 * Pode ser instalado via brew:
 
-```javascript
+```bash
 brew cask install visual-studio-code
 ```
 
-     
+* COMMAND + , abre a lista de User Settings do VSCode.
+* COMMAND + B, abre ou fecha a lista de arquivos, plugins, etc.
+
+#### Plugins interessantes
+
+* vscode-icons
+* Angular2 TypeScript Snippets
+* Javascript (ES6) code snippets
+* ESLint -- para ler arquivos de config de lint e nos dar o erro em tempo de desenvolvimento.
+* TSLint -- linter para TypeScript
+
+## Exemplo de script de configuração de ambiente
+
+* https://gist.github.com/berardo/c19daa4809e3d8eab642fdf0fd60d9bd
