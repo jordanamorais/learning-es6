@@ -111,6 +111,17 @@ class NegociacaoController {
         // console.log(this._listaNegociacoes.negociacoes);
     }
 
+    apaga() {
+
+        this._listaNegociacoes.esvazia();
+
+        // atualizar minha view com este novo estado (tabela limpa).
+        this._negociacoesView.update(this._listaNegociacoes);
+
+        this._mensagem.texto = 'Negociações apagadas com sucesso';
+        this._mensagemView.update(this._mensagem);
+    }
+
     // o _ indica que esse metodo so pode ser chamado pela classe NegociacaoController
     _limpaForm() {
 

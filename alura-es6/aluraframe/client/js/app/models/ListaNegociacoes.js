@@ -22,4 +22,9 @@ class ListaNegociacoes {
         // O concat tambem pode concatenar dois arrays num so.
         return [].concat(this._negociacoes);
     }
+
+    esvazia() {
+        
+        this._negociacoes = [];
+    }
 }
